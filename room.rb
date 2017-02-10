@@ -25,7 +25,11 @@ class Room
   end
 
   def check_in_guest(guest)
-    @guests << guest
+    if space_in_room?
+      @guests << guest 
+    else
+      return "Room full. Cannot add guest"
+    end
   end
 
   def check_out_guest(guest)

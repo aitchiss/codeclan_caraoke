@@ -12,6 +12,7 @@ class TestRoom < MiniTest::Test
 
     @guest_1 = Guest.new("Suzanne")
     @guest_2 = Guest.new("Rob")
+    @guest_3 = Guest.new("Kim")
 
     @song_1 = Song.new("Bruce Springsteen", "Born to Run")
     @song_2 = Song.new("Blur", "Song 2")
@@ -34,6 +35,12 @@ class TestRoom < MiniTest::Test
   def test_check_in_guest
     @room_1.check_in_guest(@guest_1)
     assert_equal(1, @room_1.number_of_guests)
+  end
+
+  def test_check_in_multiple_guests
+    @room_1.check_in_guest(@guest_1)
+    @room_1.check_in_guest(@guest_2)
+    assert_equal(2, @room_1.number_of_guests)
   end
 
   def test_check_out_guest
@@ -63,6 +70,15 @@ class TestRoom < MiniTest::Test
     @room_2.check_in_guest(@guest_1)
     @room_2.check_in_guest(@guest_2)
     assert_equal(false, @room_2.space_in_room?)
+  end
+
+  def test_check_in_fails_if_room_full
+    @room_2.check_in_guest(@guest_1)
+    @room_2.check_in_guest(@guest_2)
+    @room_2.check_in_guest(@guest_3)
+    assert_equal(false, @room_2.space_in_room?)
+    assert_equal(2, @room_2.number_of_guests)
+    assert_equal("Room full. Cannot add guest", @room_2.check_in_guest(@guest3))
   end
 
 end
