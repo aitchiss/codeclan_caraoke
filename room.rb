@@ -22,6 +22,12 @@ class Room
 
   def check_in_guest(guest)
     @guests << guest
+  end
+
+  def check_out_guest(guest)
+    @guests.each do |single_guest|
+      @guests.delete(guest) if single_guest == guest
+    end
 
   end
 

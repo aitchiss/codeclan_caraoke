@@ -9,6 +9,7 @@ class TestRoom < MiniTest::Test
     @room_1 = Room.new(12)
 
     @guest_1 = Guest.new("Suzanne")
+    @guest_2 = Guest.new("Rob")
 
   end
 
@@ -27,6 +28,19 @@ class TestRoom < MiniTest::Test
 
   def test_check_in_guest
     @room_1.check_in_guest(@guest_1)
+    assert_equal(1, @room_1.number_of_guests)
+  end
+
+  def test_check_out_guest
+    @room_1.check_in_guest(@guest_1)
+    @room_1.check_out_guest(@guest_1)
+    assert_equal(0, @room_1.number_of_guests)
+  end
+
+  def test_check_out_one_guest_only
+    @room_1.check_in_guest(@guest_1)
+    @room_1.check_in_guest(@guest_2)
+    @room_1.check_out_guest(@guest_1)
     assert_equal(1, @room_1.number_of_guests)
   end
 
