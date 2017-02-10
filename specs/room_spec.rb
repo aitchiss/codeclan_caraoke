@@ -10,9 +10,9 @@ class TestRoom < MiniTest::Test
     @room_1 = Room.new(12)
     @room_2 = Room.new(2)
 
-    @guest_1 = Guest.new("Suzanne")
-    @guest_2 = Guest.new("Rob")
-    @guest_3 = Guest.new("Kim")
+    @guest_1 = Guest.new("Suzanne", 50)
+    @guest_2 = Guest.new("Rob", 60)
+    @guest_3 = Guest.new("Kim", 45)
 
     @song_1 = Song.new("Bruce Springsteen", "Born to Run")
     @song_2 = Song.new("Blur", "Song 2")

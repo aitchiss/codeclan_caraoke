@@ -1,9 +1,12 @@
 class KaraokeBar
 
-  def initialize(name, rooms)
+  def initialize(name, rooms, cash)
 
     @name = name
     @rooms = rooms
+    @cash_held = cash
+    @entrance_fee = 10
+    @guests = []
 
   end
 
@@ -13,6 +16,20 @@ class KaraokeBar
 
   def number_of_rooms
     return @rooms.count
+  end
+
+  def current_funds
+    return @cash_held
+  end
+
+  def admit_guest(guest)
+    @cash_held += @entrance_fee
+    guest.deduct_cash(@entrance_fee)
+    @guests << guest
+  end
+
+  def number_of_guests
+    return @guests.count
   end
 
 

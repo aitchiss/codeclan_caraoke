@@ -1,6 +1,7 @@
 require ('minitest/autorun')
 require_relative ('../karaokebar.rb')
 require_relative ('../room.rb')
+require_relative ('../guest.rb')
 
 class TestKaraokeBar < MiniTest::Test
 
@@ -14,7 +15,9 @@ class TestKaraokeBar < MiniTest::Test
     rooms = [room_1, room_2, room_3, room_4]
 
 
-    @codeclancaraoke = KaraokeBar.new("CodeClan Caraoke", rooms)
+    @codeclancaraoke = KaraokeBar.new("CodeClan Caraoke", rooms, 200)
+
+    @guest_1 = Guest.new("Suzanne", 40)
 
   end
 
@@ -24,6 +27,22 @@ class TestKaraokeBar < MiniTest::Test
 
   def test_karaoke_bar_initializes_with_rooms
     assert_equal(4, @codeclancaraoke.number_of_rooms)
+  end
+
+  def test_karaoke_bar_current_funds
+    assert_equal(200, @codeclancaraoke.current_funds)
+  end
+
+  def test_guest_pays_entry_fee
+    @codeclancaraoke.admit_guest(@guest_1)
+    assert_equal(210, @codeclancaraoke.current_funds)
+    assert_equal(30, @guest_1.current_funds)
+    assert_equal(1, @codeclancaraoke.number_of_guests)
+
+  end
+
+  def test_karaoke_bar_starts_with_no_guests
+    assert_equal(0, @codeclancaraoke.number_of_guests)
   end
 
 end
