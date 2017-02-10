@@ -18,6 +18,7 @@ class TestKaraokeBar < MiniTest::Test
     @codeclancaraoke = KaraokeBar.new("CodeClan Caraoke", rooms, 200)
 
     @guest_1 = Guest.new("Suzanne", 40)
+    @guest_2 = Guest.new("Richard", 5)
 
   end
 
@@ -43,6 +44,12 @@ class TestKaraokeBar < MiniTest::Test
 
   def test_karaoke_bar_starts_with_no_guests
     assert_equal(0, @codeclancaraoke.number_of_guests)
+  end
+
+  def test_guest_with_insufficient_cash_not_admitted
+    @codeclancaraoke.admit_guest(@guest_2)
+    assert_equal(0, @codeclancaraoke.number_of_guests)
+    assert_equal(200, @codeclancaraoke.current_funds)
   end
 
 end

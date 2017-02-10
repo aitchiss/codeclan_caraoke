@@ -23,9 +23,11 @@ class KaraokeBar
   end
 
   def admit_guest(guest)
-    @cash_held += @entrance_fee
-    guest.deduct_cash(@entrance_fee)
-    @guests << guest
+    if guest.current_funds >= @entrance_fee
+      @cash_held += @entrance_fee
+      guest.deduct_cash(@entrance_fee)
+      @guests << guest
+    end
   end
 
   def number_of_guests
