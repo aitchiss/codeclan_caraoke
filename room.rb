@@ -32,7 +32,11 @@ class Room
     @guests.each do |single_guest|
       @guests.delete(guest) if single_guest == guest
     end
+  end
 
+  def space_in_room?
+    return true if @guests.count < @capacity
+    return false
   end
 
 end

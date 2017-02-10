@@ -8,6 +8,7 @@ class TestRoom < MiniTest::Test
   def setup
 
     @room_1 = Room.new(12)
+    @room_2 = Room.new(2)
 
     @guest_1 = Guest.new("Suzanne")
     @guest_2 = Guest.new("Rob")
@@ -51,6 +52,17 @@ class TestRoom < MiniTest::Test
   def test_add_to_playlist
     @room_1.add_to_playlist(@song_1)
     assert_equal(1, @room_1.number_of_songs_on_playlist)
+  end
+
+  def test_space_in_room_is_true
+    @room_2.check_in_guest(@guest_1)
+    assert_equal(true, @room_2.space_in_room?)
+  end
+
+  def test_space_in_room_is_false
+    @room_2.check_in_guest(@guest_1)
+    @room_2.check_in_guest(@guest_2)
+    assert_equal(false, @room_2.space_in_room?)
   end
 
 end
