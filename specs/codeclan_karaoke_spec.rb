@@ -6,5 +6,5 @@ require_relative ('../song.rb')
 
 class TestCodeClanKaraoke < MiniTest::Test
 
-
+  
 end
