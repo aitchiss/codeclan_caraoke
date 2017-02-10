@@ -1,6 +1,7 @@
 require_relative ('./viewer.rb')
 require_relative ('./karaokebar.rb')
 require_relative ('./room.rb')
+require_relative ('./guest.rb')
 
 class CodeClanCaraoke
 
@@ -21,7 +22,15 @@ class CodeClanCaraoke
 
   def run
     @viewer.welcome
-    @viewer.task_selector
+    @user_input = @viewer.task_selector
+    case @user_input
+      when "1"
+        @guest_name = @viewer.get_guest_name
+        @guest_funds = @viewer.get_guest_funds
+        guest = Guest.new(@guest_name, @guest_funds)
+        @codeclancaraoke.admit_guest(guest)
+    end
+
 
   end
 
