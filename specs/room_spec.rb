@@ -1,11 +1,14 @@
 require ('minitest/autorun')
 require_relative ('../room.rb')
+require_relative ('../guest.rb')
 
 class TestRoom < MiniTest::Test
 
   def setup
 
     @room_1 = Room.new(12)
+
+    @guest_1 = Guest.new("Suzanne")
 
   end
 
@@ -20,6 +23,11 @@ class TestRoom < MiniTest::Test
 
   def test_room_playlist_starts_empty
     assert_equal(0, @room_1.number_of_songs_on_playlist)
+  end
+
+  def test_check_in_guest
+    @room_1.check_in_guest(@guest_1)
+    assert_equal(1, @room_1.number_of_guests)
   end
 
 end
