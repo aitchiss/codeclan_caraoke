@@ -20,6 +20,10 @@ class Room
     return @playlist.count
   end
 
+  def add_to_playlist(song)
+    @playlist << song
+  end
+
   def check_in_guest(guest)
     @guests << guest
   end
