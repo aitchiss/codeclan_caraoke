@@ -1,5 +1,6 @@
 class KaraokeBar
 
+
   def initialize(name, rooms, cash)
 
     @name = name
@@ -32,6 +33,14 @@ class KaraokeBar
 
   def number_of_guests
     return @guests.count
+  end
+
+  def get_guests
+    return @guests
+  end
+
+  def get_rooms
+    return @rooms
   end
 
 

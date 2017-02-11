@@ -1,4 +1,4 @@
-
+require_relative ('./karaokebar.rb')
 
 class Viewer
 
@@ -33,6 +33,16 @@ class Viewer
     puts "Which room would you like to check a guest into?"
     @user_input = gets.chomp.to_i
     return @user_input
+  end
+
+  def select_guest_from_karaoke_bar(guest_string, karaokebar)
+    guest_selected = nil
+    for guest in karaokebar.get_guests
+      if guest.get_name == guest_string
+        guest_selected = guest
+      end
+    end
+    return guest_selected
   end
 
 end
