@@ -22,18 +22,20 @@ class CodeClanCaraoke
 
   def run
     @viewer.welcome
-    @user_input = @viewer.task_selector
-    case @user_input
-      when "1"
-        @guest_name = @viewer.get_guest_name
-        @guest_funds = @viewer.get_guest_funds
-        guest = Guest.new(@guest_name, @guest_funds)
-        @codeclancaraoke.admit_guest(guest)
-      when "2"
-        guest_choice = @viewer.get_guest_name
-        guest_to_check_in = @viewer.select_guest_from_karaoke_bar(guest_choice, @codeclancaraoke)
-        room = @viewer.select_room_from_karaoke_bar(@codeclancaraoke)
-        room.check_in_guest(guest_to_check_in)
+    while @user_input != "5"
+      @user_input = @viewer.task_selector
+      case @user_input
+        when "1"
+          @guest_name = @viewer.get_guest_name
+          @guest_funds = @viewer.get_guest_funds
+          guest = Guest.new(@guest_name, @guest_funds)
+          @codeclancaraoke.admit_guest(guest)
+        when "2"
+          guest_choice = @viewer.get_guest_name
+          guest_to_check_in = @viewer.select_guest_from_karaoke_bar(guest_choice, @codeclancaraoke)
+          room = @viewer.select_room_from_karaoke_bar(@codeclancaraoke)
+          room.check_in_guest(guest_to_check_in)
+      end
     end
 
 
