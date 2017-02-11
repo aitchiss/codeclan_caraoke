@@ -27,5 +27,15 @@ class TestBarTab < MiniTest::Test
     assert_equal(5, @bar_tab.total)
   end
 
+  def test_multiple_drinks_added_to_tab
+    drink1 = Drink.new("gin", 5)
+    drink2 = Drink.new("wine", 6)
+    drink3 = Drink.new("lager", 4)
+    @bar_tab.add_drink(drink1)
+    @bar_tab.add_drink(drink2)
+    @bar_tab.add_drink(drink3)
+    assert_equal(15, @bar_tab.total)
+  end
+
 
 end
