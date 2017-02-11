@@ -29,4 +29,10 @@ class Viewer
     return @guest_funds
   end
 
+  def choose_room
+    puts "Which room would you like to check a guest into?"
+    @user_input = gets.chomp.to_i
+    return @user_input
+  end
+
 end

@@ -29,6 +29,8 @@ class CodeClanCaraoke
         @guest_funds = @viewer.get_guest_funds
         guest = Guest.new(@guest_name, @guest_funds)
         @codeclancaraoke.admit_guest(guest)
+      when "2"
+        room = @viewer.choose_room
     end
 
 
