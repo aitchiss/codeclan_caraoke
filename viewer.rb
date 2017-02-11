@@ -70,4 +70,21 @@ class Viewer
   end
   ##########needs amended to output error if guest not able to be checked out##############
 
+  def select_song(karaokebar)
+    puts "Please choose from the avaiable songs (select using number):"
+    karaokebar.list_available_songs
+    song_choice = (gets.chomp.to_i - 1)
+    return song_choice
+
+  end
+
+  def confirm_song_added(song)
+
+    puts "The song '#{song.title}' has been added to the room's playlist"
+    puts "-----------------------------------------------"
+
+  end
+
+
+
 end

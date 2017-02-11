@@ -46,5 +46,9 @@ class KaraokeBar
     return @rooms
   end
 
+  def list_available_songs
+    @songs.each_with_index {|song, index| puts "#{index +1}. #{song.artist}: '#{song.title}'"}
+  end
+
 
 end

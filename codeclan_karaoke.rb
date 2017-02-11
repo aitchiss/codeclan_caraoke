@@ -2,6 +2,7 @@ require_relative ('./viewer.rb')
 require_relative ('./karaokebar.rb')
 require_relative ('./room.rb')
 require_relative ('./guest.rb')
+require_relative ('./song.rb')
 
 class CodeClanCaraoke
 
@@ -16,7 +17,11 @@ class CodeClanCaraoke
 
     @rooms = [room1, room2, room3, room4]
 
-    @codeclancaraoke = KaraokeBar.new("CodeClanCaraoke", @rooms, 300)
+    song_1 = Song.new("Bruce Springsteen", "Badlands")
+    song_2 = Song.new("The Smiths", "This Charming Man")
+    songs = [song_1, song_2]
+
+    @codeclancaraoke = KaraokeBar.new("CodeClanCaraoke", @rooms, 300, songs)
 
   end
 
@@ -42,7 +47,11 @@ class CodeClanCaraoke
           room.check_out_guest(guest_to_check_out)
           @viewer.confirm_check_out(guest_to_check_out)
         when "4"
-          
+          song = @viewer.select_song(@codeclancaraoke)
+          room = @viewer.select_room_from_karaoke_bar(@codeclancaraoke)
+          room.add_to_playlist(song)
+          @viewer.confirm_song_added(@codeclancaraoke.songs[song])
+
       end
     end
 
