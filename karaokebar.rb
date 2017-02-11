@@ -1,13 +1,16 @@
 class KaraokeBar
 
+  attr_reader :songs
 
-  def initialize(name, rooms, cash)
+
+  def initialize(name, rooms, cash, songs)
 
     @name = name
     @rooms = rooms
     @cash_held = cash
     @entrance_fee = 10
     @guests = []
+    @songs = songs
 
   end
 

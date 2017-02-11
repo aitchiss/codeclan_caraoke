@@ -41,6 +41,8 @@ class CodeClanCaraoke
           room = @viewer.select_room_from_karaoke_bar(@codeclancaraoke)
           room.check_out_guest(guest_to_check_out)
           @viewer.confirm_check_out(guest_to_check_out)
+        when "4"
+          
       end
     end
 

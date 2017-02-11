@@ -4,13 +4,15 @@ require_relative ('../bar_tab.rb')
 require_relative ('../drink.rb')
 require_relative ('../room.rb')
 require_relative ('../karaokebar.rb')
+require_relative ('../song.rb')
 
 
 class TestGuest < MiniTest::Test
 
   def setup
 
-    @karaokebar = KaraokeBar.new("Test Bar", [Room.new(12)], 300)
+
+    @karaokebar = KaraokeBar.new("Test Bar", [Room.new(12)], 300, Song.new("System of a Down", "Chop Suey"))
 
     @guest_1 = Guest.new("Suzanne", 50)
     @bar_tab = BarTab.new(Room.new(12))
