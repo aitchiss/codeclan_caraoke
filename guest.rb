@@ -19,6 +19,7 @@ class Guest
 
   def pay_bar_tab(bartab)
     @cash -= bartab.total
+    bartab.clear_tab
   end
 
 

@@ -35,4 +35,11 @@ class TestGuest < MiniTest::Test
 
   end
 
+  def test_pay_bar_tab_clears_bar_tab
+    drink1 = Drink.new("gin", 5)
+    @bar_tab.add_drink(drink1)
+    @guest_1.pay_bar_tab(@bar_tab)
+    assert_equal(0, @bar_tab.total)
+  end
+
 end
