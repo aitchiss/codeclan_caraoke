@@ -29,16 +29,18 @@ class Viewer
     return @guest_funds
   end
 
-  def choose_room
-    puts "Which room would you like to check a guest into?"
-    @user_input = gets.chomp.to_i
-    return @user_input
-  end
+  # def choose_room
+  #   puts "Which room would you like to check a guest into?"
+  #   @user_input = gets.chomp.to_i
+  #   return @user_input
+  # end
 
-  def select_guest_from_karaoke_bar(guest_string, karaokebar)
+  def select_guest_from_karaoke_bar(karaokebar)
+    puts "Please enter guest name:"
+    guest_name = gets.chomp
     guest_selected = nil
     for guest in karaokebar.get_guests
-      if guest.get_name == guest_string
+      if guest.get_name == guest_name
         guest_selected = guest
       end
     end
@@ -46,10 +48,16 @@ class Viewer
   end
 
   def select_room_from_karaoke_bar(karaokebar)
-    puts "Which room would you like to check a guest into?"
+    puts "Which room would you like to select?"
     user_choice = gets.chomp.to_i
     room = karaokebar.get_rooms[(user_choice -1)]
     return room
+  end
+
+  def list_guests_in_karaoke_bar(karaokebar)
+    puts "Guests currently in #{karaokebar.get_name}:\n"
+    karaokebar.list_guests
+    puts "--------------------------------------------"
   end
 
 end

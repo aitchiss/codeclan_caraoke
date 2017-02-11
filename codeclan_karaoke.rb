@@ -30,11 +30,15 @@ class CodeClanCaraoke
           @guest_funds = @viewer.get_guest_funds
           guest = Guest.new(@guest_name, @guest_funds)
           @codeclancaraoke.admit_guest(guest)
+          @viewer.list_guests_in_karaoke_bar(@codeclancaraoke)
         when "2"
-          guest_choice = @viewer.get_guest_name
-          guest_to_check_in = @viewer.select_guest_from_karaoke_bar(guest_choice, @codeclancaraoke)
+          guest_to_check_in = @viewer.select_guest_from_karaoke_bar(@codeclancaraoke)
           room = @viewer.select_room_from_karaoke_bar(@codeclancaraoke)
           room.check_in_guest(guest_to_check_in)
+        when "3"
+          guest_to_check_out = @viewer.select_guest_from_karaoke_bar(@codeclancaraoke)
+          room = @viewer.select_room_from_karaoke_bar(@codeclancaraoke)
+          room.check_out_guest(guest_to_check_out)
       end
     end
 
