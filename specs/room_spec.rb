@@ -81,4 +81,5 @@ class TestRoom < MiniTest::Test
     assert_equal("Room full. Cannot add guest", @room_2.check_in_guest(@guest3))
   end
 
+
 end

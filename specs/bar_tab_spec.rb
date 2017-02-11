@@ -1,13 +1,20 @@
 require ('minitest/autorun')
 require_relative('../bar_tab.rb')
 require_relative('../drink.rb')
+require_relative('../room.rb')
 
 class TestBarTab < MiniTest::Test
 
   def setup
 
-    @bar_tab = BarTab.new
+    @room_1 = Room.new(12)
+    @bar_tab = BarTab.new(@room_1)
 
+  end
+
+  def test_bar_tab_has_room
+
+    assert_equal(@room_1, @bar_tab.room)
   end
 
   def test_bar_tab_starts_with_zero_drinks

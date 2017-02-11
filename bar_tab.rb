@@ -1,10 +1,13 @@
-require_relative('./drink.rb')
+
 
 class BarTab
 
-  def initialize
+  attr_reader :room
+
+  def initialize(room)
 
     @tab_contents = []
+    @room = room
 
   end
 

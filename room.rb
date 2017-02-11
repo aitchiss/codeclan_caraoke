@@ -1,3 +1,5 @@
+require_relative('./bar_tab.rb')
+
 class Room
 
   def initialize(capacity)
