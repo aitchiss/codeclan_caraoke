@@ -29,4 +29,9 @@ class BarTab
 
   end
 
+  def clear_tab
+    @tab_contents = []
+
+  end
+
 end

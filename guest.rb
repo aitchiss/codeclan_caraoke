@@ -17,6 +17,10 @@ class Guest
     @cash -= amount
   end
 
+  def pay_bar_tab(bartab)
+    @cash -= bartab.total
+  end
+
 
 
 end

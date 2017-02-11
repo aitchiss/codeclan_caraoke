@@ -2,6 +2,7 @@ require ('minitest/autorun')
 require_relative('../bar_tab.rb')
 require_relative('../drink.rb')
 require_relative('../room.rb')
+require_relative('../guest.rb')
 
 class TestBarTab < MiniTest::Test
 
@@ -36,6 +37,15 @@ class TestBarTab < MiniTest::Test
     @bar_tab.add_drink(drink3)
     assert_equal(15, @bar_tab.total)
   end
+
+  def test_guest_pays_tab
+    drink1 = Drink.new("gin", 5)
+    @bar_tab.add_drink(drink1)
+    @bar_tab.clear_tab
+    assert_equal(0, @bar_tab.total)
+
+  end
+
 
 
 end
