@@ -1,5 +1,6 @@
 require_relative ('./karaokebar.rb')
 require_relative ('./guest.rb')
+require_relative ('./room.rb')
 
 class Viewer
 
@@ -30,11 +31,6 @@ class Viewer
     return @guest_funds
   end
 
-  # def choose_room
-  #   puts "Which room would you like to check a guest into?"
-  #   @user_input = gets.chomp.to_i
-  #   return @user_input
-  # end
 
   def select_guest_from_karaoke_bar(karaokebar)
     puts "Please enter guest name:"
@@ -60,5 +56,18 @@ class Viewer
     karaokebar.get_guests.each {|guest| puts guest.get_name}
     puts "--------------------------------------------"
   end
+
+  def list_guests_in_room(room)
+    puts "Guests currently checked into room:\n"
+    room.get_guests.each {|guest| puts guest.get_name}
+    puts " -------------------------------------------"
+  end
+  ##########needs amended to output error if guest not able to be checked in##############
+
+  def confirm_check_out(guest, room)
+    puts "#{guest.get_name} has been successfully checked out"
+    puts "--------------------------------------------"
+  end
+  ##########needs amended to output error if guest not able to be checked out##############
 
 end

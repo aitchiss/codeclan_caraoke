@@ -45,4 +45,8 @@ class Room
     return false
   end
 
+  def get_guests
+    return @guests
+  end
+
 end

@@ -35,10 +35,12 @@ class CodeClanCaraoke
           guest_to_check_in = @viewer.select_guest_from_karaoke_bar(@codeclancaraoke)
           room = @viewer.select_room_from_karaoke_bar(@codeclancaraoke)
           room.check_in_guest(guest_to_check_in)
+          @viewer.list_guests_in_room(room)
         when "3"
           guest_to_check_out = @viewer.select_guest_from_karaoke_bar(@codeclancaraoke)
           room = @viewer.select_room_from_karaoke_bar(@codeclancaraoke)
           room.check_out_guest(guest_to_check_out)
+          @viewer.confirm_check_out(guest_to_check_out)
       end
     end
 
