@@ -43,9 +43,5 @@ class KaraokeBar
     return @rooms
   end
 
-  def list_guests
-    @guests.each {|guest| puts guest.get_name}
-  end
-
 
 end

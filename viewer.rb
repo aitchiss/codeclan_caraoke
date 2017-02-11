@@ -1,4 +1,5 @@
 require_relative ('./karaokebar.rb')
+require_relative ('./guest.rb')
 
 class Viewer
 
@@ -56,7 +57,7 @@ class Viewer
 
   def list_guests_in_karaoke_bar(karaokebar)
     puts "Guests currently in #{karaokebar.get_name}:\n"
-    karaokebar.list_guests
+    karaokebar.get_guests.each {|guest| puts guest.get_name}
     puts "--------------------------------------------"
   end
 
