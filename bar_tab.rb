@@ -15,9 +15,7 @@ class BarTab
 
     total_charges = 0
 
-    for drink in @tab_contents
-      total_charges += drink.price
-    end
+    @tab_contents.each { |drink| total_charges += drink.price}
 
     return total_charges
 

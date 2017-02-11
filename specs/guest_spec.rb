@@ -3,11 +3,14 @@ require_relative ('../guest.rb')
 require_relative ('../bar_tab.rb')
 require_relative ('../drink.rb')
 require_relative ('../room.rb')
+require_relative ('../karaokebar.rb')
 
 
 class TestGuest < MiniTest::Test
 
   def setup
+
+    @karaokebar = KaraokeBar.new("Test Bar", [Room.new(12)], 300)
 
     @guest_1 = Guest.new("Suzanne", 50)
     @bar_tab = BarTab.new(Room.new(12))
@@ -41,5 +44,7 @@ class TestGuest < MiniTest::Test
     @guest_1.pay_bar_tab(@bar_tab)
     assert_equal(0, @bar_tab.total)
   end
+
+
 
 end
