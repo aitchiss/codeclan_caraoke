@@ -45,4 +45,11 @@ class Viewer
     return guest_selected
   end
 
+  def select_room_from_karaoke_bar(karaokebar)
+    puts "Which room would you like to check a guest into?"
+    user_choice = gets.chomp.to_i
+    room = karaokebar.get_rooms[(user_choice -1)]
+    return room
+  end
+
 end
