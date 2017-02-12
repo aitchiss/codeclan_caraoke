@@ -22,8 +22,8 @@ class TestKaraokeBar < MiniTest::Test
 
     @codeclancaraoke = KaraokeBar.new("CodeClan Caraoke", rooms, 200, songs)
 
-    @guest_1 = Guest.new("Suzanne", 40)
-    @guest_2 = Guest.new("Richard", 5)
+    @guest_1 = Guest.new("Suzanne", 40, song_1)
+    @guest_2 = Guest.new("Richard", 5, song_2)
 
   end
 

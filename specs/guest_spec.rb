@@ -14,7 +14,8 @@ class TestGuest < MiniTest::Test
 
     @karaokebar = KaraokeBar.new("Test Bar", [Room.new(12)], 300, Song.new("System of a Down", "Chop Suey"))
 
-    @guest_1 = Guest.new("Suzanne", 50)
+
+    @guest_1 = Guest.new("Suzanne", 50, Song.new("Bruce Springsteen", "Thunder Road"))
     @bar_tab = BarTab.new(Room.new(12))
 
   end
@@ -25,6 +26,10 @@ class TestGuest < MiniTest::Test
 
   def test_guest_has_funds
     assert_equal(50, @guest_1.current_funds)
+  end
+
+  def test_guest_has_favourite_song
+    assert_equal("Thunder Road", @guest_1.fave_song.title)
   end
 
   def test_deduct_cash

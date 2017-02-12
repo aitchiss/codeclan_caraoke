@@ -1,8 +1,11 @@
 class Guest
 
-  def initialize(name, cash)
+  attr_reader :fave_song
+
+  def initialize(name, cash, fave_song)
     @name = name
     @cash = cash
+    @fave_song = fave_song
   end
 
   def get_name

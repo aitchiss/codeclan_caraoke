@@ -10,12 +10,15 @@ class TestRoom < MiniTest::Test
     @room_1 = Room.new(12)
     @room_2 = Room.new(2)
 
-    @guest_1 = Guest.new("Suzanne", 50)
-    @guest_2 = Guest.new("Rob", 60)
-    @guest_3 = Guest.new("Kim", 45)
-
     @song_1 = Song.new("Bruce Springsteen", "Born to Run")
     @song_2 = Song.new("Blur", "Song 2")
+    @song_3 = Song.new("Van Halen", "Panama")
+
+    @guest_1 = Guest.new("Suzanne", 50, @song_1)
+    @guest_2 = Guest.new("Rob", 60, @song_2)
+    @guest_3 = Guest.new("Kim", 45, @song_3)
+
+    
 
   end
 
@@ -60,6 +63,7 @@ class TestRoom < MiniTest::Test
     @room_1.add_to_playlist(@song_1)
     assert_equal(1, @room_1.number_of_songs_on_playlist)
   end
+
 
   def test_space_in_room_is_true
     @room_2.check_in_guest(@guest_1)
