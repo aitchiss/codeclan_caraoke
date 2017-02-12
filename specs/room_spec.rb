@@ -40,6 +40,11 @@ class TestRoom < MiniTest::Test
     assert_equal(1, @room_1.number_of_guests)
   end
 
+  def test_guest_woos_on_check_in
+    @room_1.add_to_playlist(@song_1)
+    assert_equal("Woo!", @room_1.check_in_guest(@guest_1))
+  end
+
   def test_check_in_multiple_guests
     @room_1.check_in_guest(@guest_1)
     @room_1.check_in_guest(@guest_2)
@@ -62,6 +67,11 @@ class TestRoom < MiniTest::Test
   def test_add_to_playlist
     @room_1.add_to_playlist(@song_1)
     assert_equal(1, @room_1.number_of_songs_on_playlist)
+  end
+
+  def test_guest_woos_if_fave_song_added
+    @room_1.check_in_guest(@guest_1)
+    assert_equal("Woo!", @room_1.add_to_playlist(@song_1))
   end
 
 

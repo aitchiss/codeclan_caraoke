@@ -1,4 +1,5 @@
 require_relative('./bar_tab.rb')
+require_relative('./guest.rb')
 
 class Room
 
@@ -24,6 +25,11 @@ class Room
 
   def add_to_playlist(song)
     @playlist << song
+    @guests.each do |guest|
+      if guest.fave_song == song
+        return guest.woo
+      end
+    end
   end
 
   def check_in_guest(guest)
@@ -31,6 +37,11 @@ class Room
       @guests << guest 
     else
       return "Room full. Cannot add guest"
+    end
+    @playlist.each do |song|
+      if song == guest.fave_song
+        return "Woo!"
+      end
     end
   end
 
