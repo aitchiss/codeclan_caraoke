@@ -31,9 +31,11 @@ class CodeClanCaraoke
       @user_input = @viewer.task_selector
       case @user_input
         when "1"
-          @guest_name = @viewer.get_guest_name
-          @guest_funds = @viewer.get_guest_funds
-          guest = Guest.new(@guest_name, @guest_funds)
+          guest_name = @viewer.get_guest_name
+          guest_funds = @viewer.get_guest_funds
+          song_artist = @viewer.get_guest_fave_song_artist
+          song_title = @viewer.get_guest_fave_song_title
+          guest = Guest.new(guest_name, guest_funds, Song.new(song_artist, song_title))
           @codeclancaraoke.admit_guest(guest)
           @viewer.list_guests_in_karaoke_bar(@codeclancaraoke)
         when "2"

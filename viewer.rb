@@ -31,6 +31,18 @@ class Viewer
     return @guest_funds
   end
 
+  def get_guest_fave_song_artist
+    puts "Please enter favourite song's artist:"
+    artist = gets.chomp
+    return artist
+  end
+
+  def get_guest_fave_song_title
+    puts "Please enter favourite song's title:"
+    title = gets.chomp
+    return title
+  end
+
 
   def select_guest_from_karaoke_bar(karaokebar)
     puts "Please enter guest name:"

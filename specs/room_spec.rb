@@ -18,8 +18,6 @@ class TestRoom < MiniTest::Test
     @guest_2 = Guest.new("Rob", 60, @song_2)
     @guest_3 = Guest.new("Kim", 45, @song_3)
 
-    
-
   end
 
 
