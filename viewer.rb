@@ -9,7 +9,7 @@ class Viewer
   end
 
   def task_selector
-    puts "What would you like to do? Select from the number options below:"
+    puts "What would you like to do? Select from the number options below:\n"
     puts "1. Admit new guest"
     puts "2. Check guest into room"
     puts "3. Check guest out of room"
@@ -64,21 +64,21 @@ class Viewer
   end
 
   def list_guests_in_karaoke_bar(karaokebar)
-    puts "Guests currently in #{karaokebar.get_name}:\n"
+    puts "Guests currently in #{karaokebar.get_name}:\n\n"
     karaokebar.get_guests.each {|guest| puts guest.get_name}
-    puts "--------------------------------------------"
+    puts "\n--------------------------------------------"
   end
 
   def list_guests_in_room(room)
-    puts "Guests currently checked into room:\n"
+    puts "Guests currently checked into room:\n\n"
     room.get_guests.each {|guest| puts guest.get_name}
-    puts " -------------------------------------------"
+    puts "\n-------------------------------------------"
   end
   ##########needs amended to output error if guest not able to be checked in##############
 
   def confirm_check_out(guest, room)
     puts "#{guest.get_name} has been successfully checked out"
-    puts "--------------------------------------------"
+    puts "\n--------------------------------------------"
   end
   ##########needs amended to output error if guest not able to be checked out##############
 
@@ -92,8 +92,8 @@ class Viewer
 
   def confirm_song_added(song)
 
-    puts "The song '#{song.title}' has been added to the room's playlist"
-    puts "-----------------------------------------------"
+    puts "\nThe song '#{song.title}' has been added to the room's playlist"
+    puts "\n-----------------------------------------------"
 
   end
 
