@@ -22,6 +22,10 @@ class Guest
     bartab.clear_tab
   end
 
+  def woo
+    return "Woo!"
+  end
+
 
 
 end

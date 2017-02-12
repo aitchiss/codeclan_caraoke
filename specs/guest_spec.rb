@@ -47,6 +47,10 @@ class TestGuest < MiniTest::Test
     assert_equal(0, @bar_tab.total)
   end
 
+  def test_guest_can_shout_woo
+    assert_equal("Woo!", @guest_1.woo)
+  end
+
 
 
 end
